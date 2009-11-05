@@ -1,0 +1,17 @@
+%table
+	%thead
+		%tr
+			%td=""
+			- @game.characters.map(&:level).each do |level|
+				%td= level
+		%tr
+			%td=""
+			- @game.characters.map(&:name).each do |level|
+				%td= level
+	%tbody
+		- Job.all.each do |job|
+			%tr
+				%td= job.name
+				- @game.characters.map {|character| character.character_jobs.find_by_job_id(job)}.each do |character_job|
+					%td{:class => get_job_class(character_job)}
+						= text_field_tag character_job.job_level, :onchange => "" 

@@ -1,0 +1,442 @@
+---
+:squire:
+- :name: Accumulate
+  :cost: 300
+- :name: Heal
+  :cost: 100
+- :name: Throw Stone
+  :cost: 100
+- :name: Dash
+  :cost: 100
+- :name: Counter Tackle
+  :cost: 100
+- :name: Monster Skill
+  :cost: 100
+- :name: Equip Axe
+  :cost: 100
+- :name: Defend
+  :cost: 100
+- :name: Gained JP Up
+  :cost: 100
+- :name: Move +1
+  :cost: 100
+:chemist:
+- :name: Potion
+  :cost: 100
+- :name: Hi-Potion
+  :cost: 100
+- :name: X-Potion
+  :cost: 100
+- :name: Ether
+  :cost: 100
+- :name: Hi-Ether
+  :cost: 100
+- :name: Elixir
+  :cost: 100
+- :name: Antidote
+  :cost: 100
+- :name: Eye Drop
+  :cost: 100
+- :name: Maiden's Kiss
+  :cost: 100
+- :name: Soft
+  :cost: 100
+- :name: Holy Water
+  :cost: 100
+- :name: Remedy
+  :cost: 100
+- :name: Phoenix Down
+  :cost: 100
+- :name: Move-Find Item
+  :cost: 100
+:knight:
+- :name: Head Break
+  :cost: 100
+- :name: Shield Break
+  :cost: 100
+- :name: Armor Break
+  :cost: 100
+- :name: Weapon Break
+  :cost: 100
+- :name: Magic Break
+  :cost: 100
+- :name: Speed Break
+  :cost: 100
+- :name: Power Break
+  :cost: 100
+- :name: Mind Break
+  :cost: 100
+- :name: Weapon Guard
+  :cost: 100
+- :name: Equip Sword
+  :cost: 100
+- :name: Equip Shield
+  :cost: 100
+- :name: Equip Armor
+  :cost: 100
+:archer:
+- :name: Charge +1
+  :cost: 100
+- :name: Charge +2
+  :cost: 100
+- :name: Charge +3
+  :cost: 100
+- :name: Charge +4
+  :cost: 100
+- :name: Charge +5
+  :cost: 100
+- :name: Charge +7
+  :cost: 100
+- :name: Charge +10
+  :cost: 100
+- :name: Charge +20
+  :cost: 100
+- :name: Arrow Guard
+  :cost: 100
+- :name: Concentrate
+  :cost: 100
+- :name: Equip Crossbow
+  :cost: 100
+- :name: Jump +1
+  :cost: 100
+:monk:
+- :name: Spin Fist
+  :cost: 100
+- :name: Repeating Fist
+  :cost: 100
+- :name: Wave Fist
+  :cost: 100
+- :name: Earth Slash
+  :cost: 100
+- :name: Secret Fist
+  :cost: 100
+- :name: Stigma Magic
+  :cost: 100
+- :name: Chakra
+  :cost: 100
+- :name: Revive
+  :cost: 100
+- :name: HP Restore
+  :cost: 100
+- :name: Counter
+  :cost: 100
+- :name: Hamedo
+  :cost: 100
+- :name: Martial Arts
+  :cost: 100
+- :name: Move-HP Up
+  :cost: 100
+:priest:
+- :name: Cure
+  :cost: 100
+- :name: Cure 2
+  :cost: 100
+- :name: Cure 3
+  :cost: 100
+- :name: Cure 4
+  :cost: 100
+- :name: Raise
+  :cost: 100
+- :name: Raise 2
+  :cost: 100
+- :name: Reraise
+  :cost: 100
+- :name: Protect
+  :cost: 100
+- :name: Protect 2
+  :cost: 100
+- :name: Shell
+  :cost: 100
+- :name: Shell 2
+  :cost: 100
+- :name: Wall
+  :cost: 100
+- :name: Esuna
+  :cost: 100
+- :name: Holy
+  :cost: 100
+:wizard:
+- :name: Fire
+  :cost: 100
+- :name: Fire 2
+  :cost: 100
+- :name: Fire 3
+  :cost: 100
+- :name: Fire 4
+  :cost: 100
+- :name: Bolt
+  :cost: 100
+- :name: Bolt 2
+  :cost: 100
+- :name: Bolt 3
+  :cost: 100
+- :name: Bolt 4
+  :cost: 100
+- :name: Ice
+  :cost: 100
+- :name: Ice 2
+  :cost: 100
+- :name: Ice 3
+  :cost: 100
+- :name: Ice 4
+  :cost: 100
+- :name: Poison
+  :cost: 100
+- :name: Death
+  :cost: 100
+- :name: Flare
+  :cost: 100
+:time mage:
+- :name: Haste
+  :cost: 100
+- :name: Haste 2
+  :cost: 100
+- :name: Slow
+  :cost: 100
+- :name: Slow 2
+  :cost: 100
+- :name: Stop
+  :cost: 100
+- :name: Don't Move
+  :cost: 100
+- :name: Quick
+  :cost: 100
+- :name: Demi
+  :cost: 100
+- :name: Demi 2
+  :cost: 100
+- :name: Meteor
+  :cost: 100
+:summoner:
+- :name: Moogle
+  :cost: 100
+- :name: Shiva
+  :cost: 100
+- :name: Ramuh
+  :cost: 100
+- :name: Ifrit
+  :cost: 100
+- :name: Titan
+  :cost: 100
+- :name: Golem
+  :cost: 100
+- :name: Carbunkle
+  :cost: 100
+- :name: Fairy
+  :cost: 100
+- :name: Cyclops
+  :cost: 100
+:thief:
+- :name: Gil Taking
+  :cost: 100
+- :name: Steal Heart
+  :cost: 100
+- :name: Steal Helmet
+  :cost: 100
+- :name: Steal Shield
+  :cost: 100
+- :name: Steal Armor
+  :cost: 100
+- :name: Steal Weapon
+  :cost: 100
+- :name: Steal Accessory
+  :cost: 100
+- :name: Steal Exp
+  :cost: 100
+- :name: Caution
+  :cost: 100
+- :name: Gilgame Heart
+  :cost: 100
+- :name: Catch
+  :cost: 100
+- :name: Secret Hunt
+  :cost: 100
+- :name: Move +2
+  :cost: 100
+- :name: Jump +2
+  :cost: 100
+:mediator:
+- :name: Invitation
+  :cost: 100
+- :name: Persuade
+  :cost: 100
+- :name: Praise
+  :cost: 100
+- :name: Threaten
+  :cost: 100
+- :name: Faith
+  :cost: 100
+- :name: Solution
+  :cost: 100
+:oracle:
+- :name: Blind
+  :cost: 100
+- :name: Spell Absorb
+  :cost: 100
+- :name: Pray Faith
+  :cost: 100
+- :name: Doubt Faith
+  :cost: 100
+- :name: Silence Song
+  :cost: 100
+- :name: Foxbird
+  :cost: 100
+- :name: Paralyze
+  :cost: 100
+:geomancer:
+- :name: Pitfall
+  :cost: 150
+- :name: Water Ball
+  :cost: 150
+- :name: Hell Ivy
+  :cost: 150
+- :name: Local Quake
+  :cost: 150
+- :name: Carve Model
+  :cost: 150
+- :name: Kamiachti
+  :cost: 150
+- :name: Demon Fire
+  :cost: 150
+- :name: Quicksand
+  :cost: 150
+- :name: Blizzard
+  :cost: 150
+- :name: Gusty Wind
+  :cost: 150
+- :name: Lava Ball
+  :cost: 150
+:lancer:
+- :name: Level Jump 1
+  :cost: 100
+- :name: Level Jump 2
+  :cost: 100
+- :name: Level Jump 3
+  :cost: 100
+- :name: Level Jump 4
+  :cost: 100
+- :name: Level Jump 5
+  :cost: 100
+- :name: Level Jump 8
+  :cost: 100
+- :name: Vertical Jump 1
+  :cost: 100
+- :name: Vertical Jump 2
+  :cost: 100
+- :name: Vertical Jump 3
+  :cost: 100
+- :name: Vertical Jump 4
+  :cost: 100
+- :name: Vertical Jump 5
+  :cost: 100
+- :name: Vertical Jump 6
+  :cost: 100
+- :name: Vertical Jump 7
+  :cost: 100
+- :name: Vertical Jump 8
+  :cost: 100
+- :name: Dragon Spirit
+  :cost: 100
+- :name: Equip Spear
+  :cost: 100
+- :name: Ignore Height
+  :cost: 100
+:samurai:
+- :name: Asura
+  :cost: 100
+- :name: Kotetsu 
+  :cost: 100
+- :name: Bizen Boat
+  :cost: 100
+- :name: Murasame
+  :cost: 100
+- :name: Heaven's Cloud
+  :cost: 100
+- :name: Meatbone Slash
+  :cost: 100
+- :name: Blade Grasp
+  :cost: 100
+- :name: Two Hands
+  :cost: 100
+:ninja:
+- :name: Shuriken
+  :cost: 100
+- :name: Ball
+  :cost: 100
+- :name: Knife
+  :cost: 100
+- :name: Sunken State
+  :cost: 100
+- :name: Abandon
+  :cost: 100
+- :name: Two Swords
+  :cost: 100
+:calculator:
+- :name: CT
+  :cost: 100
+- :name: Level
+  :cost: 100
+- :name: Exp
+  :cost: 100
+- :name: Height
+  :cost: 100
+- :name: Prime Number
+  :cost: 100
+- :name: 5
+  :cost: 100
+- :name: 4
+  :cost: 100
+- :name: 3
+  :cost: 100
+- :name: Distribute
+  :cost: 100
+- :name: Damage Split
+  :cost: 100
+- :name: Gained Exp Up
+  :cost: 100
+:dancer:
+- :name: Witch Dance
+  :cost: 100
+- :name: Wiznaibus
+  :cost: 100
+- :name: Slow Dance
+  :cost: 100
+- :name: Polka Polka
+  :cost: 100
+- :name: Illusion
+  :cost: 100
+- :name: Nameless Dance
+  :cost: 100
+- :name: Last Dance
+  :cost: 100
+- :name: A Save
+  :cost: 100
+- :name: Brave Up
+  :cost: 100
+- :name: Jump +3
+  :cost: 100
+- :name: Fly
+  :cost: 100
+:bard:
+- :name: Angel Song
+  :cost: 100
+- :name: Life Song
+  :cost: 100
+- :name: Cheer Song
+  :cost: 100
+- :name: Battle Song
+  :cost: 100
+- :name: Magic Song
+  :cost: 100
+- :name: Nameless Song
+  :cost: 100
+- :name: Endless Song
+  :cost: 100
+- :name: MA Save
+  :cost: 100
+- :name: Face Up
+  :cost: 100
+- :name: Move +3
+  :cost: 100
+- :name: Fly
+  :cost: 100
