@@ -1,17 +1,58 @@
-%table
-	%thead
+#scale
+	%table
 		%tr
-			%td=""
-			- @game.characters.map(&:level).each do |level|
-				%td= level
-		%tr
-			%td=""
-			- @game.characters.map(&:name).each do |level|
-				%td= level
-	%tbody
-		- Job.all.each do |job|
+			%td= "Mastered: "
+			%td.mastery0= "0%"
+			%td.mastery10= "10%"
+			%td.mastery20= "20%"
+			%td.mastery30= "30%"
+			%td.mastery40= "40%"
+			%td.mastery50= "50%"
+			%td.mastery60= "60%"
+			%td.mastery70= "70%"
+			%td.mastery80= "80%"
+			%td.mastery90= "90%"
+			%td.mastery100= "100%"
+#job_level_table
+	%table{:cellspacing => 0}
+		%thead
 			%tr
-				%td= job.name
-				- @game.characters.map {|character| character.character_jobs.find_by_job_id(job)}.each do |character_job|
-					%td{:class => get_job_class(character_job)}
-						= text_field_tag character_job.job_level, :onchange => "" 
+				%td=""
+				- @game.characters.each do |character|
+					%td= text_field_tag "character[#{character.id}][level]", character.level, :class => "level"
+			%tr
+				%td=""
+				- @game.characters.map(&:name).each do |name|
+					%td= name
+		%tbody
+			- Job.all.each do |job|
+				%tr
+					%td= job.name
+					- @game.characters.map {|character| character.character_jobs.find_by_job_id(job)}.each do |character_job|
+						- if character_job
+							%td{:class => get_job_class(character_job)}
+								= text_field_tag "character_job[#{character_job.id}][job_level]", character_job.job_level, :class => "job_level"
+						- else
+							%td.no_job=""
+						
+#job_ability_table
+	%table{:cellspacing => 0}
+		%thead
+			%tr
+				%td=""
+				- @game.characters.map(&:name).each do |name|
+					%td= name
+		%tbody
+			- Job.all.each do |job|
+				%tr.job_title
+					%td= job.name
+					%td{:colspan => @game.characters.size}= ""
+				- job.abilities.each do |ability|
+					%tr
+						%td= ability.name
+						- @game.characters.map {|character| character.get_character_job_ability(job, ability)}.each do |cj_ability|
+							- if cj_ability
+								%td.completed{:id => "cj_ability_#{cj_ability.id}"}
+									= cj_ability.completed? ? "X" : "&nbsp;"
+							- else
+								%td.no_job=""

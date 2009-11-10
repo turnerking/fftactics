@@ -38,7 +38,15 @@ ActionController::Routing::Routes.draw do |map|
   # Install the default routes as the lowest priority.
   # Note: These default routes make all actions in every controller accessible via GET requests. You should
   # consider removing or commenting them out if you're using named routes and resources.
-  map.resources :games
+  map.resources :games, :shallow => true do |game|
+    game.resources :characters do |character|
+      character.resources :character_jobs do |character_jobs|
+        character_jobs.resources :character_job_abilities
+      end
+    end
+  end
+  
+  map.root :controller => :games, :action => :index
   
   map.connect ':controller/:action/:id'
   map.connect ':controller/:action/:id.:format'

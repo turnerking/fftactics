@@ -3,286 +3,380 @@
 - :name: Accumulate
   :cost: 300
 - :name: Heal
-  :cost: 100
+  :cost: 150
 - :name: Throw Stone
-  :cost: 100
+  :cost: 90
 - :name: Dash
-  :cost: 100
+  :cost: 80
 - :name: Counter Tackle
-  :cost: 100
-- :name: Monster Skill
-  :cost: 100
+  :cost: 180
 - :name: Equip Axe
-  :cost: 100
+  :cost: 170
+- :name: Monster Skill
+  :cost: 200
 - :name: Defend
-  :cost: 100
+  :cost: 50
 - :name: Gained JP Up
-  :cost: 100
+  :cost: 200
 - :name: Move +1
-  :cost: 100
+  :cost: 200
 :chemist:
 - :name: Potion
-  :cost: 100
+  :cost: 30
 - :name: Hi-Potion
-  :cost: 100
+  :cost: 200
 - :name: X-Potion
-  :cost: 100
+  :cost: 300
 - :name: Ether
-  :cost: 100
+  :cost: 300
 - :name: Hi-Ether
-  :cost: 100
+  :cost: 400
 - :name: Elixir
-  :cost: 100
+  :cost: 900
 - :name: Antidote
-  :cost: 100
+  :cost: 70
 - :name: Eye Drop
-  :cost: 100
+  :cost: 80
+- :name: Echo Grass
+  :cost: 120
 - :name: Maiden's Kiss
-  :cost: 100
+  :cost: 200
 - :name: Soft
-  :cost: 100
+  :cost: 250
 - :name: Holy Water
-  :cost: 100
+  :cost: 400
 - :name: Remedy
-  :cost: 100
+  :cost: 700
 - :name: Phoenix Down
-  :cost: 100
+  :cost: 90
+- :name: Auto Potion
+  :cost: 400
+- :name: Throw Item
+  :cost: 350
+- :name: Maintenance
+  :cost: 250
+- :name: Equip Change
+  :cost: 0
 - :name: Move-Find Item
   :cost: 100
 :knight:
 - :name: Head Break
-  :cost: 100
-- :name: Shield Break
-  :cost: 100
+  :cost: 300
 - :name: Armor Break
-  :cost: 100
+  :cost: 400
+- :name: Shield Break
+  :cost: 300
 - :name: Weapon Break
-  :cost: 100
+  :cost: 400
 - :name: Magic Break
-  :cost: 100
+  :cost: 250
 - :name: Speed Break
-  :cost: 100
+  :cost: 250
 - :name: Power Break
-  :cost: 100
+  :cost: 250
 - :name: Mind Break
-  :cost: 100
+  :cost: 250
 - :name: Weapon Guard
-  :cost: 100
-- :name: Equip Sword
-  :cost: 100
-- :name: Equip Shield
-  :cost: 100
+  :cost: 200
 - :name: Equip Armor
-  :cost: 100
+  :cost: 500
+- :name: Equip Shield
+  :cost: 250
+- :name: Equip Sword
+  :cost: 400
 :archer:
 - :name: Charge +1
   :cost: 100
 - :name: Charge +2
-  :cost: 100
+  :cost: 150
 - :name: Charge +3
-  :cost: 100
+  :cost: 200
 - :name: Charge +4
-  :cost: 100
+  :cost: 250
 - :name: Charge +5
-  :cost: 100
+  :cost: 300
 - :name: Charge +7
-  :cost: 100
+  :cost: 400
 - :name: Charge +10
-  :cost: 100
+  :cost: 600
 - :name: Charge +20
-  :cost: 100
+  :cost: 1000
+- :name: Speed Save
+  :cost: 800
 - :name: Arrow Guard
-  :cost: 100
-- :name: Concentrate
-  :cost: 100
+  :cost: 450
 - :name: Equip Crossbow
-  :cost: 100
+  :cost: 350
+- :name: Concentrate
+  :cost: 400
 - :name: Jump +1
-  :cost: 100
+  :cost: 200
 :monk:
 - :name: Spin Fist
-  :cost: 100
+  :cost: 150
 - :name: Repeating Fist
-  :cost: 100
+  :cost: 300
 - :name: Wave Fist
-  :cost: 100
+  :cost: 300
 - :name: Earth Slash
-  :cost: 100
+  :cost: 600
 - :name: Secret Fist
-  :cost: 100
+  :cost: 300
 - :name: Stigma Magic
-  :cost: 100
+  :cost: 200
 - :name: Chakra
-  :cost: 100
+  :cost: 350
 - :name: Revive
-  :cost: 100
+  :cost: 500
 - :name: HP Restore
-  :cost: 100
+  :cost: 500
 - :name: Counter
-  :cost: 100
+  :cost: 300
 - :name: Hamedo
-  :cost: 100
+  :cost: 1200
 - :name: Martial Arts
-  :cost: 100
+  :cost: 200
 - :name: Move-HP Up
-  :cost: 100
+  :cost: 300
 :priest:
 - :name: Cure
-  :cost: 100
+  :cost: 50
 - :name: Cure 2
-  :cost: 100
+  :cost: 180
 - :name: Cure 3
-  :cost: 100
+  :cost: 400
 - :name: Cure 4
-  :cost: 100
+  :cost: 700
 - :name: Raise
-  :cost: 100
+  :cost: 180
 - :name: Raise 2
-  :cost: 100
+  :cost: 500
 - :name: Reraise
-  :cost: 100
+  :cost: 800
+- :name: Regen
+  :cost: 300
 - :name: Protect
-  :cost: 100
+  :cost: 70
 - :name: Protect 2
-  :cost: 100
+  :cost: 500
 - :name: Shell
-  :cost: 100
+  :cost: 70
 - :name: Shell 2
-  :cost: 100
+  :cost: 500
 - :name: Wall
-  :cost: 100
+  :cost: 380
 - :name: Esuna
-  :cost: 100
+  :cost: 280
 - :name: Holy
-  :cost: 100
+  :cost: 600
+- :name: Regenerator
+  :cost: 400
+- :name: Magic Defend Up
+  :cost: 400
 :wizard:
 - :name: Fire
-  :cost: 100
+  :cost: 50
 - :name: Fire 2
-  :cost: 100
+  :cost: 200
 - :name: Fire 3
-  :cost: 100
+  :cost: 480
 - :name: Fire 4
-  :cost: 100
+  :cost: 850
 - :name: Bolt
-  :cost: 100
+  :cost: 50
 - :name: Bolt 2
-  :cost: 100
+  :cost: 200
 - :name: Bolt 3
-  :cost: 100
+  :cost: 480
 - :name: Bolt 4
-  :cost: 100
+  :cost: 850
 - :name: Ice
-  :cost: 100
+  :cost: 50
 - :name: Ice 2
-  :cost: 100
+  :cost: 200
 - :name: Ice 3
-  :cost: 100
+  :cost: 480
 - :name: Ice 4
-  :cost: 100
+  :cost: 850
 - :name: Poison
-  :cost: 100
+  :cost: 150
+- :name: Frog
+  :cost: 500
 - :name: Death
-  :cost: 100
+  :cost: 600
 - :name: Flare
-  :cost: 100
+  :cost: 900
+- :name: Counter Magic
+  :cost: 800
+- :name: Magic Attack UP
+  :cost: 400
 :time mage:
 - :name: Haste
   :cost: 100
 - :name: Haste 2
-  :cost: 100
+  :cost: 550
 - :name: Slow
-  :cost: 100
+  :cost: 80
 - :name: Slow 2
-  :cost: 100
+  :cost: 520
 - :name: Stop
-  :cost: 100
+  :cost: 330
 - :name: Don't Move
   :cost: 100
+- :name: Float
+  :cost: 200
+- :name: Reflect
+  :cost: 300
 - :name: Quick
-  :cost: 100
+  :cost: 800
 - :name: Demi
-  :cost: 100
+  :cost: 250
 - :name: Demi 2
-  :cost: 100
+  :cost: 550
 - :name: Meteor
-  :cost: 100
+  :cost: 1500
+- :name: Critical Quick
+  :cost: 700
+- :name: MP Switch
+  :cost: 400
+- :name: Short Charge
+  :cost: 800
+- :name: Teleport
+  :cost: 600
+- :name: Float (Movement)
+  :cost: 540
 :summoner:
 - :name: Moogle
-  :cost: 100
+  :cost: 110
 - :name: Shiva
-  :cost: 100
+  :cost: 200
 - :name: Ramuh
-  :cost: 100
+  :cost: 200
 - :name: Ifrit
-  :cost: 100
+  :cost: 200
 - :name: Titan
-  :cost: 100
+  :cost: 220
 - :name: Golem
-  :cost: 100
+  :cost: 500
 - :name: Carbunkle
-  :cost: 100
+  :cost: 350
+- :name: Bahamut
+  :cost: 1200
+- :name: Odin
+  :cost: 900
+- :name: Leviathan
+  :cost: 850
+- :name: Salamander
+  :cost: 820
+- :name: Silf
+  :cost: 400
 - :name: Fairy
-  :cost: 100
+  :cost: 460
+- :name: Lich
+  :cost: 600
 - :name: Cyclops
-  :cost: 100
+  :cost: 1000
+- :name: Zodiac
+  :cost: 0
+- :name: MP Restore
+  :cost: 400
+- :name: Half of MP
+  :cost: 900
 :thief:
 - :name: Gil Taking
-  :cost: 100
+  :cost: 10
 - :name: Steal Heart
-  :cost: 100
+  :cost: 150
 - :name: Steal Helmet
-  :cost: 100
-- :name: Steal Shield
-  :cost: 100
+  :cost: 350
 - :name: Steal Armor
-  :cost: 100
+  :cost: 450
+- :name: Steal Shield
+  :cost: 350
 - :name: Steal Weapon
-  :cost: 100
+  :cost: 600
 - :name: Steal Accessory
-  :cost: 100
+  :cost: 500
 - :name: Steal Exp
-  :cost: 100
+  :cost: 250
 - :name: Caution
-  :cost: 100
+  :cost: 200
 - :name: Gilgame Heart
-  :cost: 100
+  :cost: 200
 - :name: Catch
-  :cost: 100
+  :cost: 200
 - :name: Secret Hunt
-  :cost: 100
+  :cost: 200
 - :name: Move +2
-  :cost: 100
+  :cost: 520
 - :name: Jump +2
-  :cost: 100
+  :cost: 480
 :mediator:
 - :name: Invitation
   :cost: 100
 - :name: Persuade
   :cost: 100
 - :name: Praise
-  :cost: 100
+  :cost: 200
 - :name: Threaten
-  :cost: 100
-- :name: Faith
-  :cost: 100
+  :cost: 200
+- :name: Preach
+  :cost: 200
 - :name: Solution
+  :cost: 200
+- :name: Death Sentence
+  :cost: 500
+- :name: Negotiate
+  :cost: 100
+- :name: Insult
+  :cost: 300
+- :name: Mimic Daravon
+  :cost: 300
+- :name: Finger Guard
+  :cost: 300
+- :name: Equip Gun
+  :cost: 750
+- :name: Train
+  :cost: 450
+- :name: Monster Talk
   :cost: 100
 :oracle:
 - :name: Blind
   :cost: 100
 - :name: Spell Absorb
-  :cost: 100
+  :cost: 200
+- :name: Life Drain
+  :cost: 350
 - :name: Pray Faith
-  :cost: 100
+  :cost: 400
 - :name: Doubt Faith
-  :cost: 100
+  :cost: 400
+- :name: Zombie
+  :cost: 300
 - :name: Silence Song
-  :cost: 100
+  :cost: 170
+- :name: Blind Rage
+  :cost: 400
 - :name: Foxbird
-  :cost: 100
+  :cost: 200
+- :name: Confusion Song
+  :cost: 400
+- :name: Dispel Magic
+  :cost: 700
 - :name: Paralyze
   :cost: 100
+- :name: Sleep
+  :cost: 350
+- :name: Petrify
+  :cost: 600
+- :name: Absorb Used MP
+  :cost: 250
+- :name: Defense Up
+  :cost: 400
+- :name: Any Weather
+  :cost: 200
+- :name: Move MP Up
+  :cost: 350
 :geomancer:
 - :name: Pitfall
   :cost: 150
@@ -290,15 +384,17 @@
   :cost: 150
 - :name: Hell Ivy
   :cost: 150
-- :name: Local Quake
-  :cost: 150
 - :name: Carve Model
   :cost: 150
-- :name: Kamiachti
+- :name: Local Quake
+  :cost: 150
+- :name: Kamaitachi
   :cost: 150
 - :name: Demon Fire
   :cost: 150
 - :name: Quicksand
+  :cost: 150
+- :name: Sand Storm
   :cost: 150
 - :name: Blizzard
   :cost: 150
@@ -306,96 +402,138 @@
   :cost: 150
 - :name: Lava Ball
   :cost: 150
+- :name: Counter Flood
+  :cost: 300
+- :name: Attack Up
+  :cost: 400
+- :name: Any Ground
+  :cost: 220
+- :name: Move on Lava
+  :cost: 150
 :lancer:
-- :name: Level Jump 1
+- :name: Level Jump2
+  :cost: 150
+- :name: Level Jump3
+  :cost: 300
+- :name: Level Jump4
+  :cost: 450
+- :name: Level Jump5
+  :cost: 600
+- :name: Level Jump8
+  :cost: 900
+- :name: Vertical Jump2
   :cost: 100
-- :name: Level Jump 2
-  :cost: 100
-- :name: Level Jump 3
-  :cost: 100
-- :name: Level Jump 4
-  :cost: 100
-- :name: Level Jump 5
-  :cost: 100
-- :name: Level Jump 8
-  :cost: 100
-- :name: Vertical Jump 1
-  :cost: 100
-- :name: Vertical Jump 2
-  :cost: 100
-- :name: Vertical Jump 3
-  :cost: 100
-- :name: Vertical Jump 4
-  :cost: 100
-- :name: Vertical Jump 5
-  :cost: 100
-- :name: Vertical Jump 6
-  :cost: 100
-- :name: Vertical Jump 7
-  :cost: 100
-- :name: Vertical Jump 8
-  :cost: 100
+- :name: Vertical Jump3
+  :cost: 200
+- :name: Vertical Jump4
+  :cost: 300
+- :name: Vertical Jump5
+  :cost: 400
+- :name: Vertical Jump6
+  :cost: 500
+- :name: Vertical Jump7
+  :cost: 600
+- :name: Vertical Jump8
+  :cost: 900
 - :name: Dragon Spirit
-  :cost: 100
+  :cost: 560
 - :name: Equip Spear
-  :cost: 100
+  :cost: 400
 - :name: Ignore Height
-  :cost: 100
+  :cost: 700
 :samurai:
-- :name: Asura
+- :name: Asura Knife
   :cost: 100
-- :name: Kotetsu 
-  :cost: 100
+- :name: Koutetsu 
+  :cost: 180
 - :name: Bizen Boat
-  :cost: 100
+  :cost: 260
 - :name: Murasame
-  :cost: 100
+  :cost: 340
 - :name: Heaven's Cloud
-  :cost: 100
+  :cost: 420
+- :name: Kiyomori
+  :cost: 500
+- :name: Muramasa
+  :cost: 580
+- :name: Kikuichimoji
+  :cost: 660
+- :name: Masamune
+  :cost: 740
+- :name: Chirijiraden
+  :cost: 820
 - :name: Meatbone Slash
-  :cost: 100
+  :cost: 200
 - :name: Blade Grasp
-  :cost: 100
+  :cost: 700
+- :name: Equip Knife
+  :cost: 400
 - :name: Two Hands
-  :cost: 100
+  :cost: 900
+- :name: Walk on Water
+  :cost: 300
 :ninja:
 - :name: Shuriken
-  :cost: 100
+  :cost: 50
 - :name: Ball
-  :cost: 100
+  :cost: 70
 - :name: Knife
   :cost: 100
+- :name: Sword
+  :cost: 100
+- :name: Hammer
+  :cost: 100
+- :name: Katana
+  :cost: 100
+- :name: Ninja Sword
+  :cost: 100
+- :name: Axe
+  :cost: 120
+- :name: Spear
+  :cost: 100
+- :name: Stick
+  :cost: 100
+- :name: Knight Sword
+  :cost: 100
+- :name: Dictionary
+  :cost: 100
 - :name: Sunken State
-  :cost: 100
+  :cost: 900
 - :name: Abandon
-  :cost: 100
+  :cost: 400
 - :name: Two Swords
-  :cost: 100
+  :cost: 900
+- :name: Move in Water
+  :cost: 420
 :calculator:
 - :name: CT
-  :cost: 100
+  :cost: 250
 - :name: Level
-  :cost: 100
+  :cost: 350
 - :name: Exp
-  :cost: 100
+  :cost: 200
 - :name: Height
-  :cost: 100
+  :cost: 250
 - :name: Prime Number
-  :cost: 100
+  :cost: 300
 - :name: 5
-  :cost: 100
+  :cost: 200
 - :name: 4
-  :cost: 100
+  :cost: 400
 - :name: 3
-  :cost: 100
+  :cost: 600
 - :name: Distribute
-  :cost: 100
+  :cost: 200
 - :name: Damage Split
-  :cost: 100
+  :cost: 300
 - :name: Gained Exp Up
-  :cost: 100
+  :cost: 350
+- :name: Move-Get Exp
+  :cost: 400
+- :name: Move-Get JP
+  :cost: 360
 :dancer:
-- :name: Witch Dance
+- :name: Witch Hunt
   :cost: 100
 - :name: Wiznaibus
   :cost: 100
@@ -403,20 +541,20 @@
   :cost: 100
 - :name: Polka Polka
   :cost: 100
-- :name: Illusion
+- :name: Disillusion
   :cost: 100
 - :name: Nameless Dance
   :cost: 100
 - :name: Last Dance
   :cost: 100
 - :name: A Save
-  :cost: 100
+  :cost: 550
 - :name: Brave Up
-  :cost: 100
+  :cost: 500
 - :name: Jump +3
-  :cost: 100
+  :cost: 1000
 - :name: Fly
-  :cost: 100
+  :cost: 1200
 :bard:
 - :name: Angel Song
   :cost: 100
@@ -433,10 +571,10 @@
 - :name: Endless Song
   :cost: 100
 - :name: MA Save
-  :cost: 100
+  :cost: 450
 - :name: Face Up
-  :cost: 100
+  :cost: 500
 - :name: Move +3
-  :cost: 100
+  :cost: 1000
 - :name: Fly
-  :cost: 100
+  :cost: 1200

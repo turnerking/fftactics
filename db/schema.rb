@@ -9,7 +9,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20091105142218) do
+ActiveRecord::Schema.define(:version => 20091105234028) do
 
   create_table "abilities", :force => true do |t|
     t.string   "name"
@@ -59,6 +59,12 @@ ActiveRecord::Schema.define(:version => 20091105142218) do
     t.string   "name"
     t.datetime "created_at"
     t.datetime "updated_at"
+  end
+
+  create_table "requirements", :force => true do |t|
+    t.integer "derived_job_id"
+    t.integer "required_job_id"
+    t.integer "required_level"
   end
 
 end

@@ -1,0 +1,5 @@
+- form_for @main_character, :url => games_path do |f|
+	= f.hidden_field :main_character
+	= render :partial => "characters/form", :locals => {:f => f}
+	= f.submit "Start Game"
+	

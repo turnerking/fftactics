@@ -1,0 +1,21 @@
+.form_field
+	= f.label :name
+	= f.text_field :name
+.form_field
+	= f.label :gender
+	= f.select :gender, [["Male", "Male"], ["Female", "Female"]]
+.form_field
+	= f.label :astrological_sign
+	= f.select :astrological_sign, Character.astrological_signs
+.form_field
+	= f.label :level
+	= f.text_field :level
+.form_field
+	= f.label :experience
+	= f.text_field :experience
+.form_field
+	= f.label :brave
+	= f.text_field :brave
+.form_field
+	= f.label :faith
+	= f.text_field :faith

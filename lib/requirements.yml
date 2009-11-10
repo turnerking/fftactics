@@ -1,0 +1,83 @@
+:knight:
+- :job: Squire
+  :job_level: 2
+:archer:
+- :job: Squire
+  :job_level: 2
+:monk:
+- :job: Knight
+  :job_level: 2
+:thief:
+- :job: Archer
+  :job_level: 2
+:geomancer:
+- :job: Monk
+  :job_level: 3
+:lancer:
+- :job: Thief
+  :job_level: 3
+:samurai:
+- :job: Knight
+  :job_level: 3
+- :job: Monk
+  :job_level: 4
+- :job: Lancer
+  :job_level: 2
+:ninja:
+- :job: Archer
+  :job_level: 3
+- :job: Thief
+  :job_level: 4
+- :job: Geomancer
+  :job_level: 2
+:dancer:
+- :job: Geomancer
+  :job_level: 4
+- :job: Lancer
+  :job_level: 4
+:priest:
+- :job: Chemist
+  :job_level: 2
+:wizard:
+- :job: Chemist
+  :job_level: 2
+:oracle:
+- :job: Priest
+  :job_level: 2
+:time mage:
+- :job: Wizard
+  :job_level: 2
+:mediator:
+- :job: Oracle
+  :job_level: 2
+:summoner:
+- :job: Time Mage
+  :job_level: 2
+:calculator:
+- :job: Priest
+  :job_level: 4
+- :job: Wizard
+  :job_level: 4
+- :job: Oracle
+  :job_level: 3
+- :job: Time Mage
+  :job_level: 3
+:bard:
+- :job: Mediator
+  :job_level: 4
+- :job: Summoner
+  :job_level: 4
+:mime:
+- :job: Squire
+  :job_level: 8
+- :job: Geomancer
+  :job_level: 4
+- :job: Lancer
+  :job_level: 4
+- :job: Chemist
+  :job_level: 8
+- :job: Mediator
+  :job_level: 4
+- :job: Summoner
+  :job_level: 4
+    
