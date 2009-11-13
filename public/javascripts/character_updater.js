@@ -1,3 +1,18 @@
+$(".level").change(function() {
+	name = $(this).attr("name");
+	level = $(this).val();
+	character_id = /\d+/.exec(name);
+	$.ajax({url: "/characters/" + character_id, 
+					type: "PUT", 
+					data: "character[level]=" + level, 
+					success: function(response) {
+						if(response == "false") {
+							alert("Entry was not an accepted value");	
+						}
+					}
+	});
+});
+
 $(".job_level").change(function() {
 	name = $(this).attr("name");
 	job_level = $(this).val();
@@ -8,7 +23,7 @@ $(".job_level").change(function() {
 					success: function(response) {
 						if(response == "false") {
 							alert("Job Level must be between 0 and 8");	
-						}
+						} 
 					}
 	});
 });
@@ -32,6 +47,10 @@ $(".completed").click(function() {
 		
 	});
 });
+
+$("#tabs").tabs();
+
+$(".dialog").dialog({autoOpen: false});
 
 function updateJobCssClass(job_id, css_class) {
 	parent_td = $("#character_job_" + job_id + "_job_level").parent()[0];

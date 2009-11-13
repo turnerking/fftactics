@@ -1,58 +1,83 @@
-#scale
-	%table
-		%tr
-			%td= "Mastered: "
-			%td.mastery0= "0%"
-			%td.mastery10= "10%"
-			%td.mastery20= "20%"
-			%td.mastery30= "30%"
-			%td.mastery40= "40%"
-			%td.mastery50= "50%"
-			%td.mastery60= "60%"
-			%td.mastery70= "70%"
-			%td.mastery80= "80%"
-			%td.mastery90= "90%"
-			%td.mastery100= "100%"
-#job_level_table
-	%table{:cellspacing => 0}
-		%thead
-			%tr
-				%td=""
-				- @game.characters.each do |character|
-					%td= text_field_tag "character[#{character.id}][level]", character.level, :class => "level"
-			%tr
-				%td=""
-				- @game.characters.map(&:name).each do |name|
-					%td= name
-		%tbody
-			- Job.all.each do |job|
+= link_to "Home Page", games_path
+= link_to "New Character", new_game_character_path(@game)
+#tabs
+	%ul
+		%li= link_to "Job Levels", "#tabs-1"
+		%li= link_to "Job Abilities", "#tabs-2"
+	#tabs-1
+		#scale
+			%table
 				%tr
-					%td= job.name
-					- @game.characters.map {|character| character.character_jobs.find_by_job_id(job)}.each do |character_job|
-						- if character_job
-							%td{:class => get_job_class(character_job)}
-								= text_field_tag "character_job[#{character_job.id}][job_level]", character_job.job_level, :class => "job_level"
-						- else
-							%td.no_job=""
-						
-#job_ability_table
-	%table{:cellspacing => 0}
-		%thead
-			%tr
-				%td=""
-				- @game.characters.map(&:name).each do |name|
-					%td= name
-		%tbody
-			- Job.all.each do |job|
-				%tr.job_title
-					%td= job.name
-					%td{:colspan => @game.characters.size}= ""
-				- job.abilities.each do |ability|
+					%td= "Key: "
+				%tr
+					%td.mastery0= "0%"
+				%tr
+					%td.mastery10= "10%"
+				%tr
+					%td.mastery20= "20%"
+				%tr
+					%td.mastery30= "30%"
+				%tr
+					%td.mastery40= "40%"
+				%tr
+					%td.mastery50= "50%"
+				%tr
+					%td.mastery60= "60%"
+				%tr
+					%td.mastery70= "70%"
+				%tr
+					%td.mastery80= "80%"
+				%tr
+					%td.mastery90= "90%"
+				%tr
+					%td.mastery100= "100%"
+		#job_level_table
+			%table{:cellspacing => 0}
+				%thead
 					%tr
-						%td= ability.name
-						- @game.characters.map {|character| character.get_character_job_ability(job, ability)}.each do |cj_ability|
-							- if cj_ability
-								%td.completed{:id => "cj_ability_#{cj_ability.id}"}
-									= cj_ability.completed? ? "X" : "&nbsp;"
-							- else
-								%td.no_job=""
+						%td.leading_col=""
+						- @game.characters.each do |character|
+							%td= text_field_tag "character[#{character.id}][level]", character.level, :class => "level"
+					%tr
+						%td.leading_col=""
+						- @game.characters.each do |character|
+							%td= link_to character.name, character_path(character)
+				%tbody
+					- Job.all.each do |job|
+						%tr
+							%td.leading_col= job.name
+							- @game.characters.map {|character| character.character_jobs.find_by_job_id(job)}.each do |character_job|
+								- if character_job && character_job.has_requirements?
+									%td{:class => "#{get_job_class(character_job)} col", :id => "character_job_#{character_job.id}"}
+										= text_field_tag "character_job[#{character_job.id}][job_level]", character_job.job_level, :class => "job_level"
+								- elsif character_job
+									%td{:class => "missed_requirements col", :id => "character_job_#{character_job.id}"}
+										%a{:href => "#", :onclick => "$(\"#job_#{job.id}\").dialog('open');", :style => "text-decoration: none;"}
+											= "*"
+								- else
+									%td.no_job.col=""
+						
+
+	#tabs-2
+		%table{:cellspacing => 0}
+			%tr
+				%td.leading_col=""
+				- @game.characters.map(&:name).each do |name|
+					%td.col= name
+		#content_table
+			%table
+				- Job.all.each do |job|
+					%tr.job_title
+						%td.leading_col= job.name
+						%td{:colspan => @game.characters.size}= ""
+					- job.abilities.each do |ability|
+						%tr
+							%td.leading_col= ability.name
+							- @game.characters.map {|character| character.get_character_job_ability(job, ability)}.each do |cj_ability|
+								- if cj_ability && cj_ability.can_learn?
+									%td.col.completed{:id => "cj_ability_#{cj_ability.id}"}
+										= cj_ability.completed? ? "X" : "&nbsp;"
+								- else
+									%td.col.no_job=""
+	- Job.all.each do |job|
+		= job.requirements_div

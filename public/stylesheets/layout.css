@@ -1,8 +1,14 @@
-td {text-align: center; border: thin solid black; padding: 2px;}
+body {background-color: #F5DEB3;}
+#main {margin: 20px;}
+#scale {float: right; margin-left: 10px;}
+td {text-align: center; border: thin solid black; padding: 2px; font-size: 14px;}
+td.leading_col { width: 120px;}
+td.col { width: 55px;}
+#content_table { height: 500px; overflow: scroll;}
 /* Color Gradient */
 /*.mastery10 {background-color: #FFB880;}
 .mastery20 {background-color: #FF7F00;}
-.mastery30 {background-color: #FFFF00;}
+.mastery30 {background-color: #FFFF00;}         
 .mastery40 {background-color: #80B800;}
 .mastery50 {background-color: #008000;}
 .mastery60 {background-color: #008888;}
@@ -21,6 +27,7 @@ td {text-align: center; border: thin solid black; padding: 2px;}
 .mastery80 {background-color: #FF3434;}
 .mastery90 {background-color: #FF1919;}*/
 
+.mastery0, .mastery0 input {background-color: #FFFFFF;}
 .mastery10, .mastery10 input {background-color: #FFC5C5;}
 .mastery20, .mastery20 input {background-color: #FF9292;}
 .mastery30, .mastery30 input {background-color: #FF6868;}
@@ -31,5 +38,5 @@ td {text-align: center; border: thin solid black; padding: 2px;}
 .mastery80, .mastery80 input {background-color: #680000; color: #C5C5C5;}
 .mastery90, .mastery90 input {background-color: #340000; color: #DEDEDE;}
 .mastery100, .mastery100 input {background-color: #000000; color: white;}
-.no_job, .job_title {background-color: gray;}
+.no_job, .job_title, .missed_requirements {background-color: gray;}
 #job_level_table input {width: 20px; border: none; text-align: center; background-color: transparent;}

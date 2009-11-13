@@ -19,3 +19,6 @@
 .form_field
 	= f.label :faith
 	= f.text_field :faith
+.form_field
+	= f.label :base_class
+	= f.select :base_class, Character.base_classes

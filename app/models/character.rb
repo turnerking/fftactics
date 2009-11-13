@@ -1,5 +1,6 @@
 class Character < ActiveRecord::Base
   has_many :character_jobs
+  belongs_to :game
   
   validates_numericality_of :level, :only_integer => true
   validates_numericality_of :experience, :only_integer => true, :allow_nil => true
@@ -10,6 +11,10 @@ class Character < ActiveRecord::Base
     ["Aries", "Taurus", "Gemini", "Cancer", "Leo", "Virgo", "Libra", "Scorpio", "Sagitaraus", "Capricorn", "Aquarius", "Pisces"]
   end
   
+  def self.bases_classes
+    ["Squire", "Engineer", "Holy Knight"]
+  end
+  
   def self.create_with_associations(character_params)
     character = Character.create!(character_params)
     character.initial_character_jobs
@@ -18,7 +23,7 @@ class Character < ActiveRecord::Base
   
   def initial_character_jobs
     Job.send(:"#{gender.downcase}_jobs").each do |job|
-      initial_level = ["Squire", "Chemist"].include?(job.name) ? 1 : 0
+      initial_level = ["Base Class", "Chemist"].include?(job.name) ? 1 : 0
       character_jobs << CharacterJob.create_with_abilities(:job => job, :job_level => initial_level)
     end
   end

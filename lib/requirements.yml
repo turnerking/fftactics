@@ -1,8 +1,8 @@
 :knight:
-- :job: Squire
+- :job: Base Class
   :job_level: 2
 :archer:
-- :job: Squire
+- :job: Base Class
   :job_level: 2
 :monk:
 - :job: Knight
@@ -68,7 +68,7 @@
 - :job: Summoner
   :job_level: 4
 :mime:
-- :job: Squire
+- :job: Base Class
   :job_level: 8
 - :job: Geomancer
   :job_level: 4

@@ -1,5 +1,5 @@
 ---
-:squire:
+:base class:
 - :name: Accumulate
   :cost: 300
 - :name: Heal
@@ -20,6 +20,32 @@
   :cost: 200
 - :name: Move +1
   :cost: 200
+- :name: Yell
+  :cost: 200
+- :name: Wish
+  :cost: 0
+- :name: Cheer Up
+  :cost: 200
+- :name: Scream
+  :cost: 500
+- :name: Ultima
+  :cost: 0
+- :name: Leg Aim
+  :cost: 200
+- :name: Arm Aim
+  :cost: 300
+- :name: Seal Evil
+  :cost: 200
+- :name: Statis Sword
+  :cost: 0
+- :name: Split Punch
+  :cost: 400
+- :name: Crush Punch
+  :cost: 500
+- :name: Lightning Stab
+  :cost: 700
+- :name: Holy Explosion
+  :cost: 800
 :chemist:
 - :name: Potion
   :cost: 30
