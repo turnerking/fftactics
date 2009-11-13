@@ -71,7 +71,7 @@
 						%td.leading_col= job.name
 						%td{:colspan => @game.characters.size}= ""
 					- job.abilities.each do |ability|
-						%tr
+						%tr{:class => "#{cycle("even", "odd")}"}
 							%td.leading_col= ability.name
 							- @game.characters.map {|character| character.get_character_job_ability(job, ability)}.each do |cj_ability|
 								- if cj_ability && cj_ability.can_learn?

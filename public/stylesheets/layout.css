@@ -5,6 +5,7 @@ td {text-align: center; border: thin solid black; padding: 2px; font-size: 14px;
 td.leading_col { width: 120px;}
 td.col { width: 55px;}
 #content_table { height: 500px; overflow: scroll;}
+.odd {background-color: #A59E73;}
 /* Color Gradient */
 /*.mastery10 {background-color: #FFB880;}
 .mastery20 {background-color: #FF7F00;}
