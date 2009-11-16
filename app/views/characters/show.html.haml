@@ -1,1 +1,15 @@
-= @character.name
+#character-box
+	%h1.name= @character.name
+	%p.level
+		= "Lvl: "
+		= text_field_tag "character[#{@character.id}][level]", @character.level, :class => "level"
+	%p.experience
+		= "Exp: "
+		= text_field_tag "character[#{@character.id}][experience]", @character.experience, :class => "experience"
+	%p.base-class= @character.base_class
+	%p.sign-gender= "#{@character.astrological_sign} - #{@character.gender}"
+	%p.brave-faith
+		= "Brave:"
+		= text_field_tag "character[#{@character.id}][brave]", @character.brave, :class => "brave"
+		= "Faith:"
+		= text_field_tag "character[#{@character.id}][faith]", @character.faith, :class => "faith"

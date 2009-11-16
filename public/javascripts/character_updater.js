@@ -1,31 +1,21 @@
 $(".level").change(function() {
-	name = $(this).attr("name");
-	level = $(this).val();
-	character_id = /\d+/.exec(name);
-	$.ajax({url: "/characters/" + character_id, 
-					type: "PUT", 
-					data: "character[level]=" + level, 
-					success: function(response) {
-						if(response == "false") {
-							alert("Entry was not an accepted value");	
-						}
-					}
-	});
+	updateValue(this, "level", "character");
+});
+
+$(".experience").change(function() {
+	updateValue(this, "experience", "character");
+});
+
+$(".brave").change(function() {
+	updateValue(this, "brave", "character");
+});
+
+$(".faith").change(function() {
+	updateValue(this, "faith", "character");
 });
 
 $(".job_level").change(function() {
-	name = $(this).attr("name");
-	job_level = $(this).val();
-	character_job_id = /\d+/.exec(name);
-	$.ajax({url: "/character_jobs/" + character_job_id, 
-					type: "PUT", 
-					data: "character_job[job_level]=" + job_level, 
-					success: function(response) {
-						if(response == "false") {
-							alert("Job Level must be between 0 and 8");	
-						} 
-					}
-	});
+	updateValue(this, "job_level", "character_job");
 });
 
 $(".completed").click(function() {
@@ -47,6 +37,22 @@ $(".completed").click(function() {
 		
 	});
 });
+
+function updateValue(element, attribute, model) {
+	name = $(element).attr("name");
+	updated_value = $(element).val();
+	model_id = /\d+/.exec(name);
+	$.ajax({url: "/" + model + "/" + model_id, 
+					type: "PUT",
+					dataType: "json",
+					data: model + "[" + attribute + "]=" + updated_value, 
+					success: function(response) {
+						if(response == "false") {
+							alert("Job Level must be between 0 and 8");	
+						} 
+					}
+	});
+};
 
 $("#tabs").tabs();
 

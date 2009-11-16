@@ -5,28 +5,7 @@ td {text-align: center; border: thin solid black; padding: 2px; font-size: 14px;
 td.leading_col { width: 120px;}
 td.col { width: 55px;}
 #content_table { height: 500px; overflow: scroll;}
-.odd {background-color: #A59E73;}
-/* Color Gradient */
-/*.mastery10 {background-color: #FFB880;}
-.mastery20 {background-color: #FF7F00;}
-.mastery30 {background-color: #FFFF00;}         
-.mastery40 {background-color: #80B800;}
-.mastery50 {background-color: #008000;}
-.mastery60 {background-color: #008888;}
-.mastery70 {background-color: #0000FF;}
-.mastery80 {background-color: #800080;}
-.mastery90 {background-color: #B50040;}
-.mastery100 {background-color: #FF0000;}*/
-/* Red Coloring */
-/*.mastery10 {background-color: #FFDEDE;}
-.mastery20 {background-color: #FFC5C5;}
-.mastery30 {background-color: #FFABAB;}
-.mastery40 {background-color: #FF9292;}
-.mastery50 {background-color: #FF7676;}
-.mastery60 {background-color: #FF6868;}
-.mastery70 {background-color: #FF4D4D;}
-.mastery80 {background-color: #FF3434;}
-.mastery90 {background-color: #FF1919;}*/
+.odd { background-color: #B5AE83; }
 
 .mastery0, .mastery0 input {background-color: #FFFFFF;}
 .mastery10, .mastery10 input {background-color: #FFC5C5;}
@@ -40,4 +19,12 @@ td.col { width: 55px;}
 .mastery90, .mastery90 input {background-color: #340000; color: #DEDEDE;}
 .mastery100, .mastery100 input {background-color: #000000; color: white;}
 .no_job, .job_title, .missed_requirements {background-color: gray;}
-#job_level_table input {width: 20px; border: none; text-align: center; background-color: transparent;}
+input {width: 20px; border: none; text-align: center; background-color: transparent;}
+
+/*characters/show*/
+#character-box {background-color: #F5EED3; border: 4px ridge black; width: 400px; height: 150px; padding: 10px;}
+#character-box .brave-faith, #character-box .sign-gender, #character-box .base-class {text-align: right; clear: right;}
+#character-box .sign-gender, #character-box .base-class {padding: 3px 0px;}
+#character-box .name {float: right; font-size: 30px; margin-bottom: 10px;}
+#character-box input {font-size: 16px; font-family: Times New Roman;}
+
