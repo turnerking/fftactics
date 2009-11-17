@@ -42,7 +42,7 @@ function updateValue(element, attribute, model) {
 	name = $(element).attr("name");
 	updated_value = $(element).val();
 	model_id = /\d+/.exec(name);
-	$.ajax({url: "/" + model + "/" + model_id, 
+	$.ajax({url: "/" + model + "s/" + model_id, 
 					type: "PUT",
 					dataType: "json",
 					data: model + "[" + attribute + "]=" + updated_value, 

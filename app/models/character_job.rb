@@ -26,11 +26,11 @@ class CharacterJob < ActiveRecord::Base
   end
   
   def points_attained
-    character_job_abilities.map(&:points_attained).inject {|points, needed| points + needed } || 1
+    character_job_abilities(:include => :ability).map(&:points_attained).inject {|points, needed| points + needed } || 1
   end
   
   def total_points_for_mastery
-    character_job_abilities.map{|ab| ab.ability.cost}.inject{|points, cost| points + cost} || 1
+    character_job_abilities(:include => :ability).map{|ab| ab.ability.cost}.inject{|points, cost| points + cost} || 1
   end
   
   def percent_mastery(rounded_to_ten = nil)

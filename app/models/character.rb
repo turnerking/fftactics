@@ -15,6 +15,18 @@ class Character < ActiveRecord::Base
     ["Squire", "Engineer", "Holy Knight"]
   end
   
+  def self.names_for(game)
+    self.connection.select_values("SELECT name FROM characters WHERE game_id = #{game.id}")
+  end
+  
+  def self.names_and_ids_for(game)
+    self.connection.select_all("SELECT name, id FROM characters WHERE game_id = #{game.id}")
+  end
+  
+  def self.levels_and_ids_for(game)
+    self.connection.select_all("SELECT level, id FROM characters WHERE game_id = #{game.id}")
+  end
+  
   def self.create_with_associations(character_params)
     character = Character.create!(character_params)
     character.initial_character_jobs
@@ -26,11 +38,6 @@ class Character < ActiveRecord::Base
       initial_level = ["Base Class", "Chemist"].include?(job.name) ? 1 : 0
       character_jobs << CharacterJob.create_with_abilities(:job => job, :job_level => initial_level)
     end
-  end
-  
-  def get_character_job_ability(job, ability)
-    return nil unless character_jobs.find_by_job_id(job) 
-    character_jobs.find_by_job_id(job).character_job_abilities.find_by_ability_id(ability)
   end
   
   def to_s

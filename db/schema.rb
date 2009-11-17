@@ -9,7 +9,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20091112143852) do
+ActiveRecord::Schema.define(:version => 20091117032452) do
 
   create_table "abilities", :force => true do |t|
     t.string   "name"
@@ -28,6 +28,9 @@ ActiveRecord::Schema.define(:version => 20091112143852) do
     t.boolean  "can_learn"
   end
 
+  add_index "character_job_abilities", ["character_job_id", "ability_id"], :name => "index_character_job_abilities_on_character_job_id_and_ability_id", :unique => true
+  add_index "character_job_abilities", ["character_job_id"], :name => "index_character_job_abilities_on_character_job_id"
+
   create_table "character_jobs", :force => true do |t|
     t.integer  "character_id"
     t.integer  "job_id"
@@ -35,6 +38,8 @@ ActiveRecord::Schema.define(:version => 20091112143852) do
     t.datetime "created_at"
     t.datetime "updated_at"
   end
+
+  add_index "character_jobs", ["job_id", "character_id"], :name => "index_character_jobs_on_job_id_and_character_id", :unique => true
 
   create_table "characters", :force => true do |t|
     t.string   "gender"

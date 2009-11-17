@@ -1,9 +1,14 @@
-= link_to "Home Page", games_path
+%a{:href => "/"}
+	= "Home Page"
 = link_to "New Character", new_game_character_path(@game)
 #tabs
 	%ul
-		%li= link_to "Job Levels", "#tabs-1"
-		%li= link_to "Job Abilities", "#tabs-2"
+		%li
+			%a{:href => "#tabs-1"}
+				= "Job Levels"
+		%li
+			%a{:href => "#tabs-2"} 
+				= "Job Abilities" 
 	#tabs-1
 		#scale
 			%table
@@ -36,17 +41,17 @@
 				%thead
 					%tr
 						%td.leading_col=""
-						- @game.characters.each do |character|
-							%td= text_field_tag "character[#{character.id}][level]", character.level, :class => "level"
+						- Character.levels_and_ids_for(@game).each do |character|
+							%td= text_field_tag "character[#{character["id"]}][level]", character["level"], :class => "level"
 					%tr
 						%td.leading_col=""
-						- @game.characters.each do |character|
-							%td= link_to character.name, character_path(character)
+						- Character.names_and_ids_for(@game).each do |character|
+							%td= link_to character["name"], character_path(character["id"])
 				%tbody
 					- Job.all.each do |job|
 						%tr
 							%td.leading_col= job.name
-							- @game.characters.map {|character| character.character_jobs.find_by_job_id(job)}.each do |character_job|
+							- @game.characters(:include => :character_jobs).map {|character| character.character_jobs.find_by_job_id(job)}.each do |character_job|
 								- if character_job && character_job.has_requirements?
 									%td{:class => "#{get_job_class(character_job)} col", :id => "character_job_#{character_job.id}"}
 										= text_field_tag "character_job[#{character_job.id}][job_level]", character_job.job_level, :class => "job_level"
@@ -62,18 +67,18 @@
 		%table{:cellspacing => 0}
 			%tr
 				%td.leading_col=""
-				- @game.characters.map(&:name).each do |name|
+				- Character.names_for(@game).each do |name|
 					%td.col= name
 		#content_table
 			%table
-				- Job.all.each do |job|
+				- Job.all(:include => :abilities).each do |job|
 					%tr.job_title
 						%td.leading_col= job.name
-						%td{:colspan => @game.characters.size}= ""
+						%td{:colspan => @game.characters.count}= ""
 					- job.abilities.each do |ability|
 						%tr{:class => "#{cycle("even", "odd")}"}
 							%td.leading_col= ability.name
-							- @game.characters.map {|character| character.get_character_job_ability(job, ability)}.each do |cj_ability|
+							- @game.characters.map {|character| CharacterJobAbility.find_by_character_job_and_ability(character, job, ability)}.each do |cj_ability|
 								- if cj_ability && cj_ability.can_learn?
 									%td.col.completed{:id => "cj_ability_#{cj_ability.id}"}
 										= cj_ability.completed? ? "X" : "&nbsp;"
