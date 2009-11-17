@@ -61,16 +61,28 @@ class CharacterJob < ActiveRecord::Base
   
   def ability_available?(ability)
     return true unless job.name == "Base Class"
-    if character.main_character?
-      return true if MAIN_CHARACTER_ABILITIES.include?(ability.name)
-    end
-    if ALTERNATE_ABILITIES[character.base_class.downcase.to_sym]
-      return true if ALTERNATE_ABILITIES[character.base_class.downcase.to_sym].include?(ability.name)
-      return false if ALTERNATE_ABILITIES[:lose].include?(ability.name)
-    end
-    if character.base_class == "Squire"
-      return true if BASIC_ABILITIES.include?(ability.name)
-    end
+    return true if has_main_character_ability?(ability)
+    return true if has_alternate_base_class_ability?(ability)
+    return false if does_not_have_basic_squire_ability?(ability)
+    return true if has_basic_squire_ability?(ability)
     return false
+  end
+  
+  private
+  
+  def has_main_character_ability?(ability)
+    character.main_character? && MAIN_CHARACTER_ABILITIES.include?(ability.name)
+  end
+  
+  def has_alternate_base_class_ability?(ability)
+    ALTERNATE_ABILITIES[character.base_class_to_sym] && ALTERNATE_ABILITIES[character.base_class_to_sym].include?(ability.name)
+  end
+  
+  def does_not_have_basic_squire_ability?(ability)
+    ALTERNATE_ABILITIES[character.base_class_to_sym] && ALTERNATE_ABILITIES[:lose].include?(ability.name)
+  end
+  
+  def has_basic_squire_ability?(ability)
+    character.base_class == "Squire" && BASIC_ABILITIES.include?(ability.name)
   end
 end

@@ -40,6 +40,10 @@ class Character < ActiveRecord::Base
     end
   end
   
+  def base_class_to_sym
+    base_class.downcase.to_sym
+  end
+  
   def to_s
     "#{name} - #{level}"
   end
