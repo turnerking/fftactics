@@ -23,4 +23,8 @@ class Job < ActiveRecord::Base
     "<div class=\"dialog\" id=\"job_#{id}\" title=\"Requirements for #{name}\"><p>#{requirements_to_s.gsub("\n", "<br>")}</p></div>"
   end
   
+  def points_needed_for_mastery
+    Ability.sum('cost', :conditions => "job_id = #{id}")
+  end
+  
 end

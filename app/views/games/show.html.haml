@@ -50,7 +50,8 @@
 				%tbody
 					- Job.all.each do |job|
 						%tr
-							%td.leading_col= job.name
+							%td.leading_col
+								= link_to job.name, job_path(job)
 							- @game.characters(:include => :character_jobs).map {|character| character.character_jobs.find_by_job_id(job)}.each do |character_job|
 								- if character_job && character_job.has_requirements?
 									%td{:class => "#{get_job_class(character_job)} col", :id => "character_job_#{character_job.id}"}

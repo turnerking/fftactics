@@ -46,6 +46,8 @@ ActionController::Routing::Routes.draw do |map|
     end
   end
   
+  map.resources :jobs
+  
   map.root :controller => :games, :action => :index
   
   map.connect ':controller/:action/:id'

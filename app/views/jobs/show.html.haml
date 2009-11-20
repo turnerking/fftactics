@@ -1,0 +1,18 @@
+%h1= @job.name
+
+%table
+	%thead
+		%tr.bottom_head
+			%td= "Name"
+			%td= "Cost"
+	%tfoot
+		%tr.top_footer
+			%td
+				%strong= "Cost of Mastery: "
+			%td= @job.points_needed_for_mastery
+	%tbody
+		- @job.abilities.each do |ability|
+			%tr
+				%td= ability.name
+				%td= ability.cost
+	

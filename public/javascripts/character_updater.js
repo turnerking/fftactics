@@ -1,21 +1,21 @@
 $(".level").change(function() {
-	updateValue(this, "level", "character");
+	updateValue(this, "level", "character", "characters");
 });
 
 $(".experience").change(function() {
-	updateValue(this, "experience", "character");
+	updateValue(this, "experience", "character", "characters");
 });
 
 $(".brave").change(function() {
-	updateValue(this, "brave", "character");
+	updateValue(this, "brave", "character", "characters");
 });
 
 $(".faith").change(function() {
-	updateValue(this, "faith", "character");
+	updateValue(this, "faith", "character", "characters");
 });
 
 $(".job_level").change(function() {
-	updateValue(this, "job_level", "character_job");
+	updateValue(this, "job_level", "character_job", "character_jobs");
 });
 
 $(".completed").click(function() {
@@ -25,41 +25,66 @@ $(".completed").click(function() {
 					type: "PUT",
 					dataType: "json",
 					success: function(response) {
-						element = $("#cj_ability_" + response["id"]);
-						matching = /X/.test(element.html());
-						if(matching) {
-							element.html("&nbsp;");
-						} else {
-							element.html("X");
-						}
-						updateJobCssClass(response["character_job_id"], response["mastery_class"]);
+						toggleX(response["id"]);
+						updateJobCssClass(response["character_job_element"], response["mastery_class"]);
 					}
 		
 	});
 });
 
-function updateValue(element, attribute, model) {
+function updateValue(element, attribute, model, controller) {
 	name = $(element).attr("name");
 	updated_value = $(element).val();
 	model_id = /\d+/.exec(name);
-	$.ajax({url: "/" + model + "s/" + model_id, 
+	$.ajax({url: "/" + controller + "/" + model_id, 
 					type: "PUT",
 					dataType: "json",
-					data: model + "[" + attribute + "]=" + updated_value, 
-					success: function(response) {
-						if(response == "false") {
-							alert("Job Level must be between 0 and 8");	
-						} 
-					}
+					data: model + "[" + attribute + "]=" + updated_value,
+					success: function(response) { responseToUpdate(response, attribute, model); }
+					/* Used anomynous function with function in it to add extra variables*/
 	});
+};
+
+function responseToUpdate(response, attribute, model) {
+	if(response == "false") {
+		if(attribute == "job_level") {
+			alert("Job Level must be between 0 and 8");
+		} else {
+			alert("Entry is not valid");
+		}
+	} else {
+		if(attribute == "job_level") {
+			jQuery.each(response, function(key, value) {
+				attachChangeEventToNewInput(key, value["input"])
+				updateJobCssClass(key, value["class"]);
+			});
+		}
+	}
 };
 
 $("#tabs").tabs();
 
 $(".dialog").dialog({autoOpen: false});
 
-function updateJobCssClass(job_id, css_class) {
-	parent_td = $("#character_job_" + job_id + "_job_level").parent()[0];
-	$(parent_td).removeClass();
-	$(parent_td).addClass(css_class);
+function toggleX(id) {
+	element = $("#cj_ability_" + id);
+	matching = /X/.test(element.html());
+	if(matching) {
+		element.html("&nbsp;");
+	} else {
+		element.html("X");
+	}
+}
+
+function attachChangeEventToNewInput(element, input_html) {
+	$(element).html(input_html);
+	$(element + "_job_level").change(function() {
+		updateValue(this, "job_level", "character_job", "character_jobs");
+	});
+}
+
+function updateJobCssClass(element, css_class) {
+	$(element).removeClass();
+	$(element).addClass("col");
+	$(element).addClass(css_class);
 };

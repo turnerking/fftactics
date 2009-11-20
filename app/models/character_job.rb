@@ -30,7 +30,8 @@ class CharacterJob < ActiveRecord::Base
   end
   
   def total_points_for_mastery
-    character_job_abilities(:include => :ability).map{|ab| ab.ability.cost}.inject{|points, cost| points + cost} || 1
+    points_to_mastery = job.points_needed_for_mastery
+    points_to_mastery == 0 ? 1 : points_to_mastery
   end
   
   def percent_mastery(rounded_to_ten = nil)
@@ -48,6 +49,19 @@ class CharacterJob < ActiveRecord::Base
   
   def mastered?
     points_attained == total_points_for_mastery
+  end
+  
+  def opened_up_jobs(previous_level)
+    opened_jobs = []
+    job.derived.each do |derivement|
+      next if previous_level > derivement.required_level
+      derive = CharacterJob.find_by_character_id_and_job_id(character_id, derivement.derived_job_id)
+      if derive.has_requirements?
+        derive.update_attribute(:job_level, 1)
+        opened_jobs << derive
+      end
+    end
+    opened_jobs
   end
   
   def has_requirements?

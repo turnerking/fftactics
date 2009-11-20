@@ -2,6 +2,8 @@ body {background-color: #F5DEB3;}
 #main {margin: 20px;}
 #scale {float: right; margin-left: 10px;}
 td {text-align: center; border: thin solid black; padding: 2px; font-size: 14px;}
+.bottom_head td {border-bottom-width: 2px;}
+.top_footer td {border-top-width: 2px;}
 td.leading_col { width: 120px;}
 td.col { width: 55px;}
 #content_table { height: 500px; overflow: scroll;}
