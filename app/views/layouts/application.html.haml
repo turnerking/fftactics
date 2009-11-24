@@ -4,5 +4,11 @@
 		= stylesheet_link_tag "reset", "layout", "jquery-theme/jquery-ui-1.7.2.custom"
 	%body
 		#main
+			%ul#header_links
+				%li= link_to "Home Page", "/"
+				%li= link_to "New Game", new_game_path
+				- if @game
+					%li= link_to "New Character", new_game_character_path(@game)
+					
 			= yield
 		= javascript_include_tag "jquery-1.3.2", "jquery-ui-1.7.2.custom.min", "character_updater"

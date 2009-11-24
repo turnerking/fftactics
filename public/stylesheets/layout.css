@@ -1,12 +1,45 @@
 body {background-color: #F5DEB3;}
 #main {margin: 20px;}
-#scale {float: right; margin-left: 10px;}
-td {text-align: center; border: thin solid black; padding: 2px; font-size: 14px;}
+#header_links {margin-bottom: 5px; }
+
+#header_links li {
+	display: table-cell; 
+	padding: 10px 20px; 
+	border: thin solid black; 
+	margin: 0px;
+	background-color: #8C8472;
+}
+
+#header_links li a {
+	text-decoration: none;
+	color: #4C3038;
+	font-weight: bold;
+}
+
+#scale {
+	float: right; 
+	margin-left: 10px;
+}
+
+td {
+	text-align: center; 
+	border: thin solid black; 
+	padding: 2px; 
+	font-size: 14px;
+}
+
 .bottom_head td {border-bottom-width: 2px;}
 .top_footer td {border-top-width: 2px;}
 td.leading_col { width: 120px;}
 td.col { width: 55px;}
-#content_table { height: 500px; overflow: scroll;}
+
+#content_table { 
+	height: 500px; 
+	overflow: scroll;
+}
+
+#tabs-1, #tabs-2 { background-color: #F0C9A9;}
+
 .odd { background-color: #B5AE83; }
 
 .mastery0, .mastery0 input {background-color: #FFFFFF;}
@@ -21,7 +54,13 @@ td.col { width: 55px;}
 .mastery90, .mastery90 input {background-color: #340000; color: #DEDEDE;}
 .mastery100, .mastery100 input {background-color: #000000; color: white;}
 .no_job, .job_title, .missed_requirements {background-color: gray;}
-input {width: 20px; border: none; text-align: center; background-color: transparent;}
+
+input {
+	width: 20px; 
+	border: none; 
+	text-align: center; 
+	background-color: transparent;
+}
 
 /*characters/show*/
 #character-box {background-color: #F5EED3; border: 4px ridge black; width: 400px; height: 150px; padding: 10px;}

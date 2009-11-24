@@ -1,4 +1,5 @@
 - @games.each do |game|
 	%p
 		= link_to game.characters.empty? ? game.created_at : game.main_character, game_path(game)
-= link_to "New Game", new_game_path
+- if @games.empty?
+	= link_to "New Game", new_game_path
