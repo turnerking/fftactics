@@ -7,11 +7,14 @@ class Character < ActiveRecord::Base
   validates_numericality_of :brave, :only_integer => true
   validates_numericality_of :faith, :only_integer => true
   
+  validates_inclusion_of :gender, :in => %w(Male Female)
+  validates_presence_of :name
+  
   def self.astrological_signs
     ["Aries", "Taurus", "Gemini", "Cancer", "Leo", "Virgo", "Libra", "Scorpio", "Sagitaraus", "Capricorn", "Aquarius", "Pisces"]
   end
   
-  def self.bases_classes
+  def self.base_classes
     ["Squire", "Engineer", "Holy Knight"]
   end
   
