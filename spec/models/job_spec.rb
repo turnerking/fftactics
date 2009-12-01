@@ -7,7 +7,7 @@ describe Job do
     }
   end
 
-  it "should create a new instance given valid attributes" do
-    Job.create!(@valid_attributes)
+  it "raises no errors given valid attributes" do
+    Job.new(@valid_attributes).should be_valid
   end
 end

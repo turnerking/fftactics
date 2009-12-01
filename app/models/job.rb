@@ -11,18 +11,6 @@ class Job < ActiveRecord::Base
   named_scope :male_jobs, :conditions => "name != 'Dancer'"
   named_scope :female_jobs, :conditions => "name != 'Bard'"
   
-  def requirements_to_s
-    return_string = "#{name} requires:\n"
-    required.each do |req|
-      return_string << "#{req.required_level} levels of #{req.required_job.name}\n"
-    end
-    return_string
-  end
-  
-  def requirements_div
-    "<div class=\"dialog\" id=\"job_#{id}\" title=\"Requirements for #{name}\"><p>#{requirements_to_s.gsub("\n", "<br>")}</p></div>"
-  end
-  
   def points_needed_for_mastery
     Ability.sum('cost', :conditions => "job_id = #{id}")
   end

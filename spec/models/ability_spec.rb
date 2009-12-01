@@ -8,14 +8,14 @@ describe Ability do
   end
   
   describe "validity" do
-    it "creates a new instance given valid attributes" do
-      Ability.create!(@valid_attributes)
+    it "raises no errors given valid attributes" do
+      Ability.new(@valid_attributes).should be_valid
     end
   end
   
   describe "associations" do
     before :each do
-      @ability = Ability.create!(@valid_attributes)
+      @ability = Ability.new
     end
   
     it "is associated with a job" do

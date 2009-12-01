@@ -1,0 +1,3 @@
+%div{:class => "dialog", :id => "job_#{job.id}", :title => "Requirements for #{job.name}"}
+	%p= requirements_for(job).gsub("\n", "<br>")
+	

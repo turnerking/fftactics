@@ -76,11 +76,10 @@
 					- job.abilities.each do |ability|
 						%tr{:class => "#{cycle("even", "odd")}"}
 							%td.leading_col= ability.name
-							- @game.characters.map {|character| CharacterJobAbility.find_by_character_job_and_ability(character, job, ability)}.each do |cj_ability|
+							- @game.characters.map {|character| CharacterJobAbility.find_by_character_and_ability(character, ability)}.each do |cj_ability|
 								- if cj_ability && cj_ability.can_learn?
 									%td.col.completed{:id => "cj_ability_#{cj_ability.id}"}
 										= cj_ability.completed? ? "X" : "&nbsp;"
 								- else
 									%td.col.no_job=""
-	- Job.all.each do |job|
-		= job.requirements_div
+	= render :partial => "requirements_dialog", :collection => Job.all, :as => :job

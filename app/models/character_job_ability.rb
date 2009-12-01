@@ -2,7 +2,7 @@ class CharacterJobAbility < ActiveRecord::Base
   belongs_to :character_job
   belongs_to :ability
   
-  def self.find_by_character_job_and_ability(character, job, ability)
+  def self.find_by_character_and_ability(character, ability)
     CharacterJobAbility.find(:first, 
                              :select => "character_job_abilities.*", 
                              :joins => "JOIN character_jobs ON character_job_abilities.character_job_id = character_jobs.id", 
