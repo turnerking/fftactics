@@ -142,11 +142,69 @@ describe Character do
         end
       end
     end
+    
+    describe "create with associations" do
+      it "calls initial character jobs after creating" do
+        @character = Character.new
+        Character.stub!(:create!).and_return(@character)
+        @character.should_receive(:initial_character_jobs)
+        Character.create_with_associations.should == @character
+      end
+    end
   end
   
   describe "associations" do
     before :each do
-      
+      @character = Character.new
+    end
+    
+    it "has many character jobs" do
+      @character.should respond_to(:character_jobs)
+    end
+    
+    it "belongs to a game" do
+      @character.should respond_to(:game)
+    end
+  end
+  
+  describe "initial character jobs" do
+    before :each do
+      @character = Character.create!(@valid_attributes)
+      @base_class = Job.create!(:name => "Base Class")
+      @chemist = Job.create!(:name => "Chemist")
+      @knight = Job.create!(:name => "Knight")
+      @wizard = Job.create!(:name => "Wizard")
+      @bard = Job.create!(:name => "Bard")
+      @job_array = [@base_class, @chemist, @knight, @wizard, @bard]
+      Job.stub!(:male_jobs).and_return(@job_array)
+      CharacterJob.stub!(:create_with_abilities).and_return(CharacterJob.new)
+    end
+    
+    it "gets the correct group of jobs based on gender" do
+      Job.should_receive(:male_jobs).and_return(@job_array)
+      Job.should_not_receive(:female_jobs)
+      @character.initial_character_jobs
+    end
+    
+    it "creates character jobs and attaches them to the character" do
+      [[@base_class, 1], [@chemist, 1], [@knight, 0], [@wizard, 0], [@bard, 0]].each do |job, level|
+        params = {:job => job, :job_level => level}
+        CharacterJob.should_receive(:create_with_abilities).with(params).and_return(CharacterJob.new(params))
+      end
+      @character.initial_character_jobs
+      @character.character_jobs.size.should == 5
+    end
+  end
+  
+  describe "base class to sym" do
+    it "returns the symbolized version of the character's base class" do
+      Character.new(:base_class => "Base Class").base_class_to_sym.should == :"base class"
+    end
+  end
+  
+  describe "to string" do
+    it "returns the character name and level" do
+      Character.new(:name => "Foo", :level => 85).to_s.should == "Foo - 85"
     end
   end
 end
