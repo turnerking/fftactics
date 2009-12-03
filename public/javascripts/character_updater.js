@@ -40,24 +40,21 @@ function updateValue(element, attribute, model, controller) {
 					type: "PUT",
 					dataType: "json",
 					data: model + "[" + attribute + "]=" + updated_value,
-					success: function(response) { responseToUpdate(response, attribute, model); }
+					success: function(response) { responseToUpdate(response, attribute); }
 					/* Used anomynous function with function in it to add extra variables*/
 	});
 };
 
-function responseToUpdate(response, attribute, model) {
-	if(response == "false") {
-		if(attribute == "job_level") {
+function responseToUpdate(response, attribute) {
+	if(isInvalid(response)) {
+		if(isUpdatingJobLevel(attribute)) {
 			alert("Job Level must be between 0 and 8");
 		} else {
 			alert("Entry is not valid");
 		}
 	} else {
-		if(attribute == "job_level") {
-			jQuery.each(response, function(key, value) {
-				attachChangeEventToNewInput(key, value["input"])
-				updateJobCssClass(key, value["class"]);
-			});
+		if(isUpdatingJobLevel(attribute)) {
+			updateCharacterJobs(response);
 		}
 	}
 };
@@ -65,6 +62,21 @@ function responseToUpdate(response, attribute, model) {
 $("#tabs").tabs();
 
 $(".dialog").dialog({autoOpen: false});
+
+function isInvalid(response) {
+	return response == "false";
+}
+
+function isUpdatingJobLevel(attribute) {
+	return attribute == "job_level";
+}
+
+function updateCharacterJobs(new_html) {
+	jQuery.each(new_html, function(key, value) {
+		attachChangeEventToNewInput(key, value["input"])
+		updateJobCssClass(key, value["class"]);
+	});
+}
 
 function toggleX(id) {
 	element = $("#cj_ability_" + id);
