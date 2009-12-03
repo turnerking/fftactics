@@ -11,7 +11,7 @@ class CharacterJob < ActiveRecord::Base
                          :"holy knight" => ["Statis Sword", "Split Punch", "Crush Punch", "Lightning Stab", "Holy Explosion"],
                          :engineer => ["Leg Aim", "Arm Aim", "Seal Evil"]}
   
-  def self.create_with_abilities(character_job_params)
+  def self.create_with_abilities(character_job_params = {})
     character_job = CharacterJob.create!(character_job_params)
     character_job.initial_character_job_abilities
     character_job
@@ -41,10 +41,6 @@ class CharacterJob < ActiveRecord::Base
     else
       (percentage * 100).floor
     end
-  end
-  
-  def get_mastery_css_class
-    "mastery#{percent_mastery(true)}"
   end
   
   def mastered?

@@ -30,7 +30,7 @@ class Character < ActiveRecord::Base
     self.connection.select_all("SELECT level, id FROM characters WHERE game_id = #{game.id}")
   end
   
-  def self.create_with_associations(character_params)
+  def self.create_with_associations(character_params = {})
     character = Character.create!(character_params)
     character.initial_character_jobs
     character
