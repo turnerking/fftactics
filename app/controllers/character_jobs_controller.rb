@@ -8,7 +8,7 @@ class CharacterJobsController < ApplicationController
       character_job.opened_up_jobs(previous_level).each do |cj|
         html_to_change["#character_job_#{cj.id}"] ||= {}
         html_to_change["#character_job_#{cj.id}"]["input"] = input_for_job_level(cj)
-        html_to_change["#character_job_#{cj.id}"]["class"] = cj.get_mastery_css_class
+        html_to_change["#character_job_#{cj.id}"]["class"] = "mastery#{cj.percent_mastery(true)}"
       end
       render :json => html_to_change
     else
