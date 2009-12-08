@@ -6,7 +6,7 @@ class CharacterJobAbilitiesController < ApplicationController
     
     render :json => {:id => "#{@character_job_ability.id}", 
                      :character_job_element => "#character_job_#{@character_job_ability.character_job.id}",
-                     :mastery_class => @character_job_ability.character_job.get_mastery_css_class}
+                     :mastery_class => get_job_class(@character_job_ability.character_job)}
   end
 
   private
