@@ -49,8 +49,33 @@ describe CharacterJob do
   end
   
   describe "opened up jobs" do
-    it "returns the recently opened jobs" do
-      pending("Write Test to cover current functionality will need multiple tests")
+    before :each do
+      job = Job.create!
+      derived_job = Job.create!
+      job.derived << Requirement.new(:derived_job_id => derived_job, :required_level => 3)
+      @character_job = CharacterJob.create!(@valid_attributes.merge(:job => job))
+      @derived_character_job = CharacterJob.create!(:job_level => 0, :job => derived_job)
+      
+      CharacterJob.stub!(:find_by_character_id_and_job_id).and_return(@derived_character_job)
+    end
+    
+    it "skips a character job when required level has already been achieved" do
+      CharacterJob.should_not_receive(:find_by_character_id_and_job_id)
+      @character_job.opened_up_jobs(3).should == []
+    end
+    
+    it "returns an empty array when no jobs are opened because requirements have not been reached" do
+      @derived_character_job.stub!(:has_requirements?).and_return(false)
+      @character_job.opened_up_jobs(1).should == []
+    end
+    
+    it "updates a character job to job level 1 when opened" do
+      @character_job.opened_up_jobs(1)
+      @derived_character_job.job_level.should == 1
+    end
+    
+    it "returns an array of character_jobs when jobs are opened" do
+      @character_job.opened_up_jobs(1).should == [@derived_character_job]
     end
   end
   

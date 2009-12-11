@@ -50,7 +50,7 @@ class CharacterJob < ActiveRecord::Base
   def opened_up_jobs(previous_level)
     opened_jobs = []
     job.derived.each do |derivement|
-      next if previous_level > derivement.required_level
+      next if previous_level >= derivement.required_level
       derive = CharacterJob.find_by_character_id_and_job_id(character_id, derivement.derived_job_id)
       if derive.has_requirements?
         derive.update_attribute(:job_level, 1)
