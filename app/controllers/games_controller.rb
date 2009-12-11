@@ -16,7 +16,7 @@ class GamesController < ApplicationController
     main_character = Character.create_with_associations(params[:character])
     @game = Game.create!
     @game.characters << main_character
-    redirect_to game_path(@game)
+    redirect_to game_path(@game.id)
   end
 
 end

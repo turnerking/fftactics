@@ -50,17 +50,28 @@ describe CharacterJob do
   
   describe "opened up jobs" do
     it "returns the recently opened jobs" do
-      pending("Write Test to cover current functionality")
+      pending("Write Test to cover current functionality will need multiple tests")
     end
   end
   
   describe "has requirements" do
+    before :each do
+      job = Job.create!
+      required_job = Job.create!
+      job.required << Requirement.new(:required_job_id => required_job, :required_level => 2)
+      @character_job = CharacterJob.create!(@valid_attributes.merge(:job => job))
+    end
+    
     it "returns true if character job is open" do
-      pending("Write Test to cover current functionality")
+      required_character_job = CharacterJob.create!(:job_level => 3)
+      CharacterJob.stub!(:find_by_character_id_and_job_id).and_return(required_character_job)
+      @character_job.has_requirements?.should be_true
     end
     
     it "returns false if there is a missing requirement" do
-      pending("Write Test to cover current functionality")
+      required_character_job = CharacterJob.create!(:job_level => 1)
+      CharacterJob.stub!(:find_by_character_id_and_job_id).and_return(required_character_job)
+      @character_job.has_requirements?.should be_false
     end
   end
   
