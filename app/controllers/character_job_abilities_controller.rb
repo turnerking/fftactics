@@ -1,5 +1,6 @@
 class CharacterJobAbilitiesController < ApplicationController
   before_filter :find_character_job_ability
+  include ApplicationHelper
 
   def update
     @character_job_ability.update_attribute(:completed, !@character_job_ability.completed?)

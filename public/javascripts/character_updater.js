@@ -19,23 +19,13 @@ $(".job_level").change(function() {
 });
 
 $(".completed").click(function() {
-	id = $(this).attr("id");
-	character_job_ability_id = /\d+/.exec(id);
-	$.ajax({url: "/character_job_abilities/" + character_job_ability_id,
-					type: "PUT",
-					dataType: "json",
-					success: function(response) {
-						toggleX(response["id"]);
-						updateJobCssClass(response["character_job_element"], response["mastery_class"]);
-					}
-		
-	});
+	updateValue(this, "completed", "character_job_ability", "character_job_abilities");
 });
 
 function updateValue(element, attribute, model, controller) {
-	name = $(element).attr("name");
+	id = $(element).attr("id");
 	updated_value = $(element).val();
-	model_id = /\d+/.exec(name);
+	model_id = /\d+/.exec(id);
 	$.ajax({url: "/" + controller + "/" + model_id, 
 					type: "PUT",
 					dataType: "json",
@@ -44,6 +34,20 @@ function updateValue(element, attribute, model, controller) {
 					/* Used anomynous function with function in it to add extra variables*/
 	});
 };
+
+// function updateCharacterJobAbility(element) {
+// 	id = $(element).attr("id");
+// 	character_job_ability_id = /\d+/.exec(id);
+// 	$.ajax({url: "/character_job_abilities/" + character_job_ability_id,
+// 					type: "PUT",
+// 					dataType: "json",
+// 					success: function(response) { 
+// 						toggleX(response["id"]);
+// 						updateJobCssClass(response["character_job_element"], response["mastery_class"]);
+// 					}
+// 		
+// 	});
+// }
 
 function responseToUpdate(response, attribute) {
 	if(isInvalid(response)) {
@@ -55,6 +59,11 @@ function responseToUpdate(response, attribute) {
 	} else {
 		if(isUpdatingJobLevel(attribute)) {
 			updateCharacterJobs(response);
+		} else if(isUpdatingCharacterJobAbility(attribute)) {
+			toggleX(response["id"]);
+			updateJobCssClass(response["character_job_element"], response["mastery_class"]);
+		} else {
+			//Do Nothing
 		}
 	}
 };
@@ -71,9 +80,14 @@ function isUpdatingJobLevel(attribute) {
 	return attribute == "job_level";
 }
 
+function isUpdatingCharacterJobAbility(attribute) {
+	return attribute == "completed";
+}
+
 function updateCharacterJobs(new_html) {
 	jQuery.each(new_html, function(key, value) {
-		attachChangeEventToNewInput(key, value["input"])
+		createNewInput(key, value["input"]);
+		attachChangeEventToNewInput(key)
 		updateJobCssClass(key, value["class"]);
 	});
 }
@@ -88,8 +102,11 @@ function toggleX(id) {
 	}
 }
 
-function attachChangeEventToNewInput(element, input_html) {
+function createNewInput(element, input_html) {
 	$(element).html(input_html);
+}
+
+function attachChangeEventToNewInput(element) {
 	$(element + "_job_level").change(function() {
 		updateValue(this, "job_level", "character_job", "character_jobs");
 	});
