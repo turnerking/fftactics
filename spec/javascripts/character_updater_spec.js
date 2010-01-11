@@ -5,11 +5,12 @@ require("../../public/javascripts/character_updater.js");
 Screw.Unit(function(){
   describe("CharacterUpdater", function(){
 		describe("updateValue", function(){
-			it("calls responseToUpdate after AJAX call", function(){
-				var mock_object = mock(characterUpdater);
-				mock_object.should_receive("responseToUpdate").with_arguments("response", "coolness_factor").exactly(1, "times");
-			  characterUpdater.updateValue("#job_level_8", "job_level", "character_job", "character_jobs");			  
-			});
+			//TODO: figure out how to stub AJAX calls
+			// it("calls responseToUpdate after AJAX call", function(){
+			// 	var mock_object = mock(characterUpdater);
+			// 	mock_object.should_receive("responseToUpdate").with_arguments("response", "coolness_factor").exactly(1, "times");
+			//   characterUpdater.updateValue("#job_level_8", "job_level", "character_job", "character_jobs");			  
+			// });
 		});
 		
 		describe("responseToUpdate", function(){
@@ -18,6 +19,7 @@ Screw.Unit(function(){
 				mock_object.should_receive("updateCharacterJobs").with_arguments("response").exactly(1, "times")			
 				characterUpdater.responseToUpdate("response", "job_level");
 		  });
+		
 			it("calls toggleX and updateJobCssClass when updating job ability", function(){
 			  var mock_object = mock(characterUpdater);
 				mock_object.should_receive("toggleX").with_arguments("7").exactly(1, "times")			
@@ -27,7 +29,16 @@ Screw.Unit(function(){
 		});
 		
 		describe("updateCharacterJobs", function(){
-		  
+		  it("calls createNewInput & attachChangeEventToNewInput & updateJobCssClass", function(){
+				var element = "#character_job_8";
+				var input = "<input id=\"character_job_8_job_level\" name=\"character_job[8][job_level]\" type=\"text\" />";
+				var job_class = "mastery80";
+		    var mock_object = mock(characterUpdater);
+				mock_object.should_receive("createNewInput").with_arguments(element, input).exactly(1, "times");
+				mock_object.should_receive("attachChangeEventToNewInput").with_arguments(element).exactly(1, "times");
+				mock_object.should_receive("updateJobCssClass").with_arguments(element, job_class).exactly(1, "times");
+				characterUpdater.updateCharacterJobs({"#character_job_8": {"input": input, "class": job_class}});
+		  });
 		});
 		
 		describe("toggleX", function(){
