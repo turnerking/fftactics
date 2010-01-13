@@ -5,12 +5,12 @@ require("../../public/javascripts/character_updater.js");
 Screw.Unit(function(){
   describe("CharacterUpdater", function(){
 		describe("updateValue", function(){
-			//TODO: figure out how to stub AJAX calls
-			// it("calls responseToUpdate after AJAX call", function(){
-			// 	var mock_object = mock(characterUpdater);
-			// 	mock_object.should_receive("responseToUpdate").with_arguments("response", "coolness_factor").exactly(1, "times");
-			//   characterUpdater.updateValue("#job_level_8", "job_level", "character_job", "character_jobs");			  
-			// });
+			it("calls responseToUpdate after AJAX call", function(){
+				var mock_object = mock(characterUpdater);
+				var mock_jquery = mock(jQuery);
+				mock_jquery.should_receive('ajax').with_arguments({url: "/characters/8", type: "PUT", dataType: "json", data: "character[brave]=3", success: function(response) { characterUpdater.responseToUpdate(response, "job_level") }}).exactly(1, "times");
+			  characterUpdater.updateValue("#character_8", "brave", "character", "characters");			  
+			});
 		});
 		
 		describe("responseToUpdate", function(){
@@ -61,7 +61,12 @@ Screw.Unit(function(){
 		});
 		
 		describe("attachChangeEventToNewInput", function(){
-		  
+		  it("adds an event to an element", function(){
+		    characterUpdater.attachChangeEventToNewInput("#character_job_1");
+				var mock_object = mock(characterUpdater);
+				mock_object.should_receive("updateValue").with_arguments($("#character_job_1_job_level")[0], "job_level", "character_job", "character_jobs").exactly(1, "times");
+				$("#character_job_1_job_level").change();
+		  });
 		});
 		
 		describe("updateJobCssClass", function(){
@@ -103,8 +108,37 @@ Screw.Unit(function(){
 		});
 		
 		describe("events", function(){
-		  
+		  it("calls characterUpdater with appropriate values when level is changed", function(){
+		    expectsChange("level", "character");
+		  });
+		
+		  it("calls characterUpdater with appropriate values when experience is changed", function(){
+		    expectsChange("experience", "character");
+		  });
+		
+		  it("calls characterUpdater with appropriate values when brave is changed", function(){
+		    expectsChange("brave", "character");
+		  });
+		
+		  it("calls characterUpdater with appropriate values when faith is changed", function(){
+		    expectsChange("faith", "character");
+		  });
+		
+		  it("calls characterUpdater with appropriate values when job_level is changed", function(){
+		    expectsChange("job_level", "character_job");
+		  });
+		
+			function expectsChange(class_name, model) {
+				var mock_object = mock(characterUpdater);
+				mock_object.should_receive("updateValue").with_arguments($("#" + class_name)[0], class_name, model, model + "s").exactly(1, "times");
+				$("."+class_name).change();
+			}
+			
+			it("calls characterUpdater with appropriate values when completed is clicked", function(){
+			  var mock_object = mock(characterUpdater);
+				mock_object.should_receive("updateValue").with_arguments($("#completed")[0], "completed", "character_job_ability", "character_job_abilities").exactly(1, "times");
+				$(".completed").click();
+			});
 		});
-
   });
 });

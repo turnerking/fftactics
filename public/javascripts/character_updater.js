@@ -8,7 +8,10 @@ characterUpdater.updateValue = function(element, attribute, model, controller) {
 					type: "PUT",
 					dataType: "json",
 					data: model + "[" + attribute + "]=" + updated_value,
-					success: function(response) { characterUpdater.responseToUpdate(response, attribute); }
+					success: function(response) { 
+						alert(response); 
+						characterUpdater.responseToUpdate(response, attribute); 
+					}
 					/* Used anomynous function with function in it to add extra variables*/
 	});
 };
@@ -17,10 +20,12 @@ characterUpdater.responseToUpdate = function(response, attribute) {
 	if(isValidResponse(response)) {
 		if(isUpdatingJobLevel(attribute)) {
 			characterUpdater.updateCharacterJobs(response);
-		} else if(isUpdatingCharacterJobAbility(attribute)) {
+		} 
+		else if(isUpdatingCharacterJobAbility(attribute)) {
 			characterUpdater.toggleX(response["id"]);
 			characterUpdater.updateJobCssClass(response["character_job_element"], response["mastery_class"]);
-		} else {
+		} 
+		else {
 			//Do Nothing
 		}
 	}
@@ -50,7 +55,7 @@ characterUpdater.createNewInput = function(element, input_html) {
 
 characterUpdater.attachChangeEventToNewInput = function(element) {
 	$(element + "_job_level").change(function() {
-		updateValue(this, "job_level", "character_job", "character_jobs");
+		characterUpdater.updateValue(this, "job_level", "character_job", "character_jobs");
 	});
 }
 
