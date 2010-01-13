@@ -44,7 +44,7 @@ Screw.Unit(function(){
 		describe("toggleX", function(){
 		  it("changes the content of div from X to blank space", function(){
 		    characterUpdater.toggleX(2);
-				expect($('#cj_ability_2').html()).to(match, new RegExp("&nbsp;"));
+				expect($('#cj_ability_2').html()).to(match, new RegExp("^(&nbsp;)??$"));
 		  });
 		
 			it("changes the content of div from blank space to X", function(){
@@ -56,7 +56,7 @@ Screw.Unit(function(){
 		describe("createNewInput", function(){
 		  it("inserts the passed html into the passed element", function(){
 		    characterUpdater.createNewInput("#new_input", "<input type=\"text\">")
-				expect($("#new_input").html()).to(equal, "<input type=\"text\">")
+				expect($("#new_input").html()).to(match, new RegExp("input type=\"text\""))
 		  });
 		});
 		
